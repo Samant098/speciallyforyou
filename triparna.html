@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Triparna ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Dark Cloudy Background */
+        .dark-clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(30, 30, 60, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(40, 40, 80, 0.6) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(20, 20, 50, 0.7) 0%, transparent 50%);
+            z-index: 1;
+            animation: cloudDrift 20s ease-in-out infinite;
+        }
+
+        @keyframes cloudDrift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-10px) translateY(-5px); }
+            50% { transform: translateX(10px) translateY(5px); }
+            75% { transform: translateX(-5px) translateY(10px); }
+        }
+
+        /* Atmospheric Lighting Effects */
+        .atmospheric-lighting {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .light-beam {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(200, 200, 255, 0.05) 50%,
+                transparent 100%);
+            animation: lightSway 8s ease-in-out infinite;
+        }
+
+        .light-beam:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .light-beam:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .light-beam:nth-child(3) { left: 60%; animation-delay: 4s; }
+        .light-beam:nth-child(4) { left: 85%; animation-delay: 6s; }
+
+        @keyframes lightSway {
+            0%, 100% { 
+                transform: rotateZ(0deg);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: rotateZ(2deg);
+                opacity: 0.6;
+            }
+        }
+
+        /* Enhanced Rain Animation */
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 1.5px;
+            height: 25px;
+            background: linear-gradient(to bottom, 
+                rgba(150, 200, 255, 0.8), 
+                rgba(100, 150, 255, 0.3));
+            animation: fall linear infinite;
+            box-shadow: 0 0 2px rgba(150, 200, 255, 0.3);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Lightning Flash Effect */
+        .lightning {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            z-index: 4;
+            opacity: 0;
+        }
+
+        .lightning.flash {
+            animation: lightningFlash 0.4s ease-out;
+        }
+
+        @keyframes lightningFlash {
+            0% { opacity: 0; }
+            15% { opacity: 0.9; }
+            30% { opacity: 0; }
+            45% { opacity: 0.7; }
+            60% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* Thunder Sound Indicator */
+        .thunder-indicator {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 24px;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .thunder-indicator.show {
+            opacity: 1;
+            animation: thunderShake 0.5s ease-in-out;
+        }
+
+        @keyframes thunderShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Enhanced Password Screen */
+        .password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 100%),
+                radial-gradient(ellipse at center, rgba(100, 100, 200, 0.1) 0%, transparent 70%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .password-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 45px;
+            text-align: center;
+            border: 1px solid rgba(150, 200, 255, 0.2);
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .password-box h2 {
+            color: #e8f4fd;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(150, 200, 255, 0.3);
+        }
+
+        .password-input {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(150, 200, 255, 0.2);
+            border-radius: 50px;
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            color: #e8f4fd;
+            width: 280px;
+            margin: 25px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .password-input::placeholder {
+            color: rgba(232, 244, 253, 0.6);
+        }
+
+        .unlock-btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            border: none;
+            border-radius: 50px;
+            padding: 18px 35px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .unlock-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(79, 172, 254, 0.4);
+        }
+
+        /* Enhanced Main Content */
+        .main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-content.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 18px;
+            animation: floatUp 8s infinite linear;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .main-title {
+            font-size: 3.8rem;
+            color: #e8f4fd;
+            margin-bottom: 25px;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(150, 200, 255, 0.4);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { 
+                text-shadow: 
+                    3px 3px 6px rgba(0, 0, 0, 0.5), 
+                    0 0 30px rgba(150, 200, 255, 0.4); 
+            }
+            100% { 
+                text-shadow: 
+                    3px 3px 6px rgba(0, 0, 0, 0.5), 
+                    0 0 40px rgba(150, 200, 255, 0.6); 
+            }
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            color: rgba(232, 244, 253, 0.9);
+            margin-bottom: 45px;
+            animation: fadeInUp 2s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 35px;
+            max-width: 650px;
+            margin: 60px auto;
+            border: 1px solid rgba(150, 200, 255, 0.2);
+            animation: cardSlideIn 1s ease;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes cardSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .message-text {
+            color: #e8f4fd;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .interactive-btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            border: none;
+            border-radius: 50px;
+            padding: 18px 35px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 25px 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+        }
+
+        .interactive-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+        }
+
+        .surprise-section {
+            display: none;
+            text-align: center;
+            margin: 60px 0;
+            padding: 0 20px;
+        }
+
+        .surprise-section.show {
+            display: block;
+            animation: surpriseReveal 1s ease;
+        }
+
+        @keyframes surpriseReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 2x2 Photo Gallery Layout */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .photo-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(150, 200, 255, 0.2);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            padding: 20px;
+            color: #e8f4fd;
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* New Window Indicator */
+        .new-window-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(79, 172, 254, 0.8);
+            color: white;
+            padding: 5px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .music-player {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 25px;
+            margin: 25px auto;
+            max-width: 450px;
+            border: 1px solid rgba(150, 200, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-note {
+            font-size: 2.2rem;
+            animation: musicBounce 2s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes musicBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .play-btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            color: white;
+            cursor: pointer;
+            margin: 12px 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+        }
+
+        .emoji-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 25px;
+            animation: emojifall 3s linear infinite;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes emojifall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 15px;
+            right: 25px;
+            color: rgba(232, 244, 253, 0.6);
+            font-size: 0.9rem;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(150, 200, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.8rem;
+            }
+            .password-box {
+                margin: 20px;
+                padding: 35px 25px;
+            }
+            .password-input {
+                width: 220px;
+            }
+            .photo-gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+                max-width: 400px;
+                padding: 0 15px;
+            }
+            .hero {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Thunder Indicator -->
+    <div class="thunder-indicator" id="thunderIndicator">⚡</div>
+
+    <!-- Dark Cloudy Background -->
+    <div class="dark-clouds"></div>
+    
+    <!-- Atmospheric Lighting -->
+    <div class="atmospheric-lighting">
+        <div class="light-beam"></div>
+        <div class="light-beam"></div>
+        <div class="light-beam"></div>
+        <div class="light-beam"></div>
+    </div>
+
+    <!-- Lightning Effect -->
+    <div class="lightning" id="lightning"></div>
+
+    <!-- Enhanced Rain Effect -->
+    <div class="rain" id="rain"></div>
+
+    <!-- Password Screen -->
+    <div class="password-screen" id="passwordScreen">
+        <div class="password-box">
+            <h2>🌟 Special Access Required 🌟</h2>
+            <p style="color: rgba(232,244,253,0.8); margin-bottom: 20px;">Enter the magic code to continue</p>
+            <input type="password" class="password-input" id="passwordInput" placeholder="Enter password">
+            <br>
+            <button class="unlock-btn" onclick="checkPassword()">Unlock ✨</button>
+            <p id="errorMsg" style="color: #ff6b6b; margin-top: 10px; display: none;">Try again! 💫</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="floating-hearts" id="floatingHearts"></div>
+        
+        <div class="hero">
+            <h1 class="main-title">Hey Triparna! 💖</h1>
+            <p class="subtitle">This is specially for you 😉 ✨</p>
+            
+            <div class="message-card">
+                <p class="message-text">
+                    You're the girl with the gorgeous eyes, long hair, and a lovely, adorable smile. 
+                    That little mole on the upper right of your lip makes you even more beautiful and irresistibly cute 🥰. 
+                    Although you don't talk much, but your quiet vibe and amazing sense of humor makes you special 🫶. 
+                    That's what really sets you apart from others. 🌟
+                </p>
+            </div>
+
+            <button class="interactive-btn" onclick="showSurprise()">Click for a Surprise! 🎁</button>
+            <button class="interactive-btn" onclick="createCuteToyRain()">Make it Rain Cute Toys! 🧸</button>
+        </div>
+
+        <div class="surprise-section" id="surpriseSection">
+            <div class="music-player">
+                <div class="music-note">🎵</div>
+                <p style="color: #e8f4fd; margin: 10px 0;">Melody for You</p>
+                <button class="play-btn" onclick="playMusic()">▶️ Play Music</button>
+                <button class="play-btn" onclick="pauseMusic()">⏸️ Pause</button>
+                <!-- Updated audio element - replace src with your audio file path -->
+                <audio id="backgroundMusic" loop>
+                    <source src="your-audio-file.mp3" type="audio/mpeg">
+                    <source src="your-audio-file.ogg" type="audio/ogg">
+                    <source src="your-audio-file.wav" type="audio/wav">
+                </audio>
+                <p style="color: rgba(232,244,253,0.8); font-size: 0.9rem; margin-top: 10px;"> Fell the music🎶</p>
+            </div>
+
+            <!-- 2x2 Photo Gallery -->
+            <div class="photo-gallery">
+                <div class="photo-card" onclick="openPhotoInNewWindow('photo1.jpg', 'Elegance and grace in every pose  ✨')">
+                    <div class="new-window-icon">🔗</div>
+                    <img src="photo1.jpg" alt="Beautiful moment 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <canvas id="canvas1" width="300" height="300" style="display:none;"></canvas>
+                    <div class="photo-caption">Elegance and grace in every pose 💖</div>
+                </div>
+                <div class="photo-card" onclick="openPhotoInNewWindow('photo2.jpg', 'Elegance and grace in every pose 💖')">
+                    <div class="new-window-icon">🔗</div>
+                    <img src="photo2.jpg" alt="Beautiful moment 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <canvas id="canvas2" width="300" height="300" style="display:none;"></canvas>
+                    <div class="photo-caption">Creating Memories👌</div>
+                </div>
+                <div class="photo-card" onclick="openPhotoInNewWindow('photo3.jpg', 'Sweet moments captured in time 🌸')">
+                    <div class="new-window-icon">🔗</div>
+                    <img src="photo3.jpg" alt="Beautiful moment 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <canvas id="canvas3" width="300" height="300" style="display:none;"></canvas>
+                    <div class="photo-caption">Sweet moments captured in time 🌸</div>
+                </div>
+                <div class="photo-card" onclick="openPhotoInNewWindow('photo4.jpg', 'Creating beautiful memories together 💕')">
+                    <div class="new-window-icon">🔗</div>
+                    <img src="photo4.jpg" alt="Beautiful moment 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <canvas id="canvas4" width="300" height="300" style="display:none;"></canvas>
+                    <div class="photo-caption">Your radiant smile lights up every moment ✨</div>
+                </div>
+            </div>
+
+            <div class="message-card">
+                <h2 style="color: #e8f4fd; margin-bottom: 20px;">🎊 Special Gallery 🎊</h2>
+                <p class="message-text">
+                    Every photo tells a story, and every story is beautiful because you're in it. 
+                    Your presence makes ordinary moments extraordinary. Keep being the amazing person you are! ⭐
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="emoji-rain" id="emojiRain"></div>
+    
+    <!-- Watermark -->
+    <div class="watermark">Structured by Sam ✨</div>
+
+    <script>
+        // Thunder sound effect (you can replace this with actual thunder sound)
+        let thunderAudio;
+        try {
+            thunderAudio = new Audio('thunder-sound.mp3'); // Replace with your thunder sound file
+            thunderAudio.volume = 0.3;
+        } catch (e) {
+            console.log('Thunder audio not available');
+        }
+
+        // Enhanced rain effect with darker atmosphere
+        function createRain() {
+            const rainContainer = document.getElementById('rain');
+            const rainDropCount = 120;
+            
+            for (let i = 0; i < rainDropCount; i++) {
+                const raindrop = document.createElement('div');
+                raindrop.className = 'raindrop';
+                raindrop.style.left = Math.random() * 100 + '%';
+                raindrop.style.animationDuration = (Math.random() * 2 + 0.8) + 's';
+                raindrop.style.animationDelay = Math.random() * 2 + 's';
+                rainContainer.appendChild(raindrop);
+            }
+        }
+
+        // Enhanced lightning and thunder effect with fixed intervals
+        function createLightningAndThunder() {
+            const lightning = document.getElementById('lightning');
+            const thunderIndicator = document.getElementById('thunderIndicator');
+            
+            // Thunder every 8-15 seconds
+            setInterval(() => {
+                // Lightning flash
+                lightning.classList.add('flash');
+                
+                // Thunder indicator
+                thunderIndicator.classList.add('show');
+                
+                // Play thunder sound if available
+                if (thunderAudio) {
+                    try {
+                        thunderAudio.currentTime = 0;
+                        thunderAudio.play().catch(e => console.log('Thunder sound play failed'));
+                    } catch (e) {
+                        console.log('Thunder sound error');
+                    }
+                }
+                
+                // Remove effects after animation
+                setTimeout(() => {
+                    lightning.classList.remove('flash');
+                    thunderIndicator.classList.remove('show');
+                }, 400);
+                
+            }, Math.random() * 7000 + 8000); // Random interval between 8-15 seconds
+        }
+
+        // Function to open photos in new window
+        function openPhotoInNewWindow(imageSrc, caption) {
+            const newWindow = window.open('', '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
+            const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>${caption}</title>
+                    <style>
+                        body {
+                            margin: 0;
+                            padding: 20px;
+                            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            min-height: 100vh;
+                            font-family: Arial, sans-serif;
+                            color: white;
+                        }
+                        img {
+                            max-width: 90%;
+                            max-height: 80vh;
+                            border-radius: 20px;
+                            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                            object-fit: contain;
+                        }
+                        .caption {
+                            margin-top: 20px;
+                            font-size: 1.2rem;
+                            text-align: center;
+                            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                            padding: 10px 20px;
+                            background: rgba(255,255,255,0.1);
+                            border-radius: 15px;
+                            backdrop-filter: blur(10px);
+                        }
+                        .error {
+                            color: #ff6b6b;
+                            font-size: 1.1rem;
+                            text-align: center;
+                            padding: 20px;
+                            background: rgba(255,255,255,0.1);
+                            border-radius: 15px;
+                            backdrop-filter: blur(10px);
+                        }
+                    </style>
+                </head>
+                <body>
+                    <img src="${imageSrc}" alt="${caption}" onerror="this.style.display='none'; document.querySelector('.error').style.display='block';">
+                    <div class="error" style="display:none;">
+                        <p>📸 Photo not found</p>
+                        <p>Please make sure the image file "${imageSrc}" exists in your project folder.</p>
+                    </div>
+                    <div class="caption">${caption}</div>
+                </body>
+                </html>
+            `;
+            newWindow.document.write(html);
+            newWindow.document.close();
+        }
+
+        // Initialize effects on page load
+        createRain();
+        createLightningAndThunder();
+
+        // Password functionality
+        function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const errorMsg = document.getElementById('errorMsg');
+            
+            if (input.value === '2707') {
+                document.getElementById('passwordScreen').style.display = 'none';
+                const mainContent = document.getElementById('mainContent');
+                mainContent.classList.add('show');
+                startHeartAnimation();
+                loadCanvasImages();
+            } else {
+                errorMsg.style.display = 'block';
+                input.value = '';
+                input.style.animation = 'shake 0.5s ease-in-out';
+                setTimeout(() => {
+                    input.style.animation = '';
+                }, 500);
+            }
+        }
+
+        // Enter key support for password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Shake animation for wrong password
+        const shakeKeyframes = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        const style = document.createElement('style');
+        style.textContent = shakeKeyframes;
+        document.head.appendChild(style);
+
+        // Load canvas images as fallback when real images fail
+        function loadCanvasImages() {
+            const canvases = ['canvas1', 'canvas2', 'canvas3', 'canvas4'];
+            const colors = ['#4facfe', '#00f2fe', '#667eea', '#764ba2'];
+            const emojis = ['💖', '🌸', '✨', '💕'];
+            
+            canvases.forEach((canvasId, index) => {
+                const canvas = document.getElementById(canvasId);
+                const ctx = canvas.getContext('2d');
+                
+                // Create darker gradient background
+                const gradient = ctx.createLinearGradient(0, 0, 300, 300);
+                gradient.addColorStop(0, colors[index]);
+                gradient.addColorStop(1, '#1a1a2e');
+                
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, 300, 300);
+                
+                // Add decorative elements
+                ctx.font = '60px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillStyle = 'white';
+                ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
+                ctx.shadowBlur = 10;
+                ctx.fillText(emojis[index], 150, 170);
+                
+                ctx.font = '16px Arial';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                ctx.shadowBlur = 5;
+                ctx.fillText('Beautiful Moment', 150, 220);
+            });
+        }
+
+        // Enhanced floating hearts animation
+        function startHeartAnimation() {
+            const heartsContainer = document.getElementById('floatingHearts');
+            const cuteToys = ['🐶', '🐱', '🐰', '🧸', '🐹', '🐻', '🦄', '🌸'];
+            
+            setInterval(() => {
+                if (heartsContainer.children.length < 15) {
+                    const toy = document.createElement('div');
+                    toy.className = 'heart';
+                    toy.textContent = cuteToys[Math.floor(Math.random() * cuteToys.length)];
+                    toy.style.left = Math.random() * 100 + '%';
+                    toy.style.color = `hsl(${Math.random() * 60 + 180}, 70%, 80%)`;
+                    toy.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                    heartsContainer.appendChild(toy);
+                    
+                    setTimeout(() => {
+                        if (toy.parentNode) toy.remove();
+                    }, 8000);
+                }
+            }, 1500);
+        }
+
+        // Surprise section
+        function showSurprise() {
+            const surprise = document.getElementById('surpriseSection');
+            surprise.classList.add('show');
+            surprise.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Updated music functionality to use provided audio
+        function playMusic() {
+            const music = document.getElementById('backgroundMusic');
+            try {
+                music.play().catch(e => {
+                    console.log('Audio play failed - user interaction required first');
+                    alert('Please click on the audio element first to enable playback');
+                });
+            } catch (e) {
+                console.log('Audio not available');
+            }
+        }
+
+        function pauseMusic() {
+            const music = document.getElementById('backgroundMusic');
+            try {
+                music.pause();
+            } catch (e) {
+                console.log('Audio pause failed');
+            }
+        }
+
+        // Enhanced cute toy rain effect
+        function createCuteToyRain() {
+            const emojiRain = document.getElementById('emojiRain');
+            const cuteToys = ['🐶', '🐱', '🐰', '🧸', '🐹', '🐻', '🦄', '🌸', '🌺', '💖'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const toy = document.createElement('div');
+                    toy.className = 'emoji';
+                    toy.textContent = cuteToys[Math.floor(Math.random() * cuteToys.length)];
+                    toy.style.left = Math.random() * 100 + '%';
+                    toy.style.animationDelay = Math.random() * 1 + 's';
+                    toy.style.color = `hsl(${Math.random() * 60 + 180}, 70%, 80%)`;
+                    emojiRain.appendChild(toy);
+                    
+                    setTimeout(() => {
+                        if (toy.parentNode) toy.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
